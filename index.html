@@ -17,8 +17,6 @@
   <style>
     :root{
       --bg:#070b14;
-      --card:#0b1220;
-      --card2:#0d1730;
       --text:#eaf0ff;
       --muted:#a9b7d6;
       --line:rgba(255,255,255,.10);
@@ -86,6 +84,7 @@
       justify-content:flex-end;
     }
     .nav-links a:hover{color:var(--text)}
+
     .btn{
       display:inline-flex; align-items:center; justify-content:center;
       gap:10px;
@@ -112,7 +111,7 @@
     .hero{padding:56px 0 12px}
     .hero-grid{
       display:grid;
-      grid-template-columns: 1.25fr .75fr;
+      grid-template-columns: 1.1fr .9fr;
       gap:20px;
       align-items:stretch;
     }
@@ -145,6 +144,7 @@
       max-width: 62ch;
     }
     .hero-actions{display:flex; gap:12px; flex-wrap:wrap; margin-top:16px}
+
     .card{
       background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
       border:1px solid var(--line);
@@ -155,9 +155,49 @@
       padding:18px;
       display:flex;
       flex-direction:column;
-      justify-content:space-between;
+      gap:14px;
       min-height: 100%;
     }
+
+    /* Photo */
+    .photo-wrap{
+      display:grid;
+      grid-template-columns: 120px 1fr;
+      gap:14px;
+      align-items:center;
+    }
+    .photo{
+      width:120px;
+      height:120px;
+      border-radius: 22px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      overflow:hidden;
+      position:relative;
+      box-shadow: 0 18px 45px rgba(0,0,0,.35);
+    }
+    .photo img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+    .photo-fallback{
+      width:100%;
+      height:100%;
+      display:grid;
+      place-items:center;
+      font-weight:900;
+      letter-spacing:-.5px;
+      color: rgba(234,240,255,.85);
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.12), rgba(255,255,255,.02));
+    }
+    .photo-note{
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 6px;
+    }
+
     .meta{
       border:1px solid var(--line);
       background: rgba(255,255,255,.03);
@@ -171,8 +211,8 @@
     .meta strong{color: var(--text)}
     .mini{
       display:flex; align-items:center; justify-content:space-between;
-      margin-top: 12px;
-      padding-top: 14px;
+      margin-top: 6px;
+      padding-top: 12px;
       border-top:1px solid var(--line);
       color: var(--muted);
       font-size: 13px;
@@ -221,21 +261,6 @@
       letter-spacing: -.2px;
     }
     .tile p{margin:0; color: var(--muted); font-size: 14px}
-    .icon{
-      width:38px; height:38px; border-radius:14px;
-      display:grid; place-items:center;
-      background: rgba(124,58,237,.14);
-      border: 1px solid rgba(124,58,237,.25);
-      margin-bottom: 10px;
-    }
-    .icon.alt{
-      background: rgba(6,182,212,.12);
-      border: 1px solid rgba(6,182,212,.22);
-    }
-    .icon.good{
-      background: rgba(34,197,94,.12);
-      border: 1px solid rgba(34,197,94,.22);
-    }
 
     /* Lists */
     .list{
@@ -280,6 +305,8 @@
       .hero-grid{grid-template-columns: 1fr}
       .grid-3{grid-template-columns: 1fr}
       .nav-links{gap:12px}
+      .photo-wrap{grid-template-columns: 100px 1fr}
+      .photo{width:100px; height:100px}
     }
   </style>
 
@@ -327,11 +354,9 @@
         <div class="hero-grid">
           <div>
             <div class="pill"><span class="dot"></span> Neuroscience • Data Science • Innovation</div>
-            <h1>Building models of the brain — and translating them into tools that matter.</h1>
+            <h1>Bridging science and innovation to create products that matter.</h1>
             <p class="subhead">
-              I’m a PhD neuroscientist at NTNU/Kavli (Trondheim) working on how the brain supports goal-directed behavior and
-              spatial cognition. I’m especially interested in egocentric representations, neural computation in cortex,
-              and the path from research → product.
+              I’m a neuroscientist by training, but my real passion is translation. I work at the exact intersection of R&D and product development, taking complex scientific discoveries and turning them into tangible products that actually reach and impact people.
             </p>
 
             <div class="hero-actions">
@@ -343,15 +368,26 @@
           </div>
 
           <aside class="card hero-card" aria-label="Quick facts">
+            <div class="photo-wrap">
+              <div class="photo" aria-label="Profile photo">
+                <!-- Put your image at assets/pearl.jpg (or change this path) -->
+                <img src="assets/pearl.jpg" alt="Pearl Saldanha" onerror="this.style.display='none'; this.parentElement.querySelector('.photo-fallback').style.display='grid';" />
+                <div class="photo-fallback" style="display:none;">PS</div>
+              </div>
+              <div>
+                <div style="font-weight:900; letter-spacing:-.2px; font-size:16px;">Pearl Saldanha</div>
+                <div class="photo-note">
+            </div>
+
             <div class="meta">
               <div><strong>Location:</strong> Trondheim, Norway</div>
-              <div><strong>Current:</strong> PhD Neuroscience (NTNU/Kavli)</div>
-              <div><strong>Also:</strong> CSO & EIR @ Intellectual Labs</div>
-              <div><strong>Focus:</strong> spatial cognition, egocentric coding, translational science</div>
+              <div><strong>Current:</strong> PhD Neuroscience (Kavli Institute for Systems Neuroscience, NTNU)</div>
+              <div><strong>Also:</strong> CSO and EIR at Intellectual Labs</div>
+              <div><strong>Focus:</strong> spatial cognition, translational science, cancer biology</div>
             </div>
 
             <div class="mini">
-              <span>Open to: research × venture collaborations</span>
+              <span>Open to: research and venture collaborations</span>
               <span style="display:inline-flex; gap:8px; align-items:center;">
                 <span style="width:8px;height:8px;border-radius:999px;background:var(--good); box-shadow:0 0 0 4px rgba(34,197,94,.12)"></span>
                 Available for talks
@@ -369,7 +405,7 @@
         <h2>Science, execution, and a bias for shipping.</h2>
         <p class="lead">
           I enjoy problems that sit between disciplines: where you need strong theory, robust analysis, and enough pragmatism
-          to build something real. I’ve worked across systems neuroscience, data science workflows, and innovation programs —
+          to build something real. I’ve worked across systems neuroscience, data science workflows, and innovation programs,
           including leading commercialization projects and helping shape deep-tech venture roadmaps.
         </p>
 
@@ -380,12 +416,12 @@
             <p>How cortical circuits support spatial cognition and goal-directed behavior, especially under dynamic demands.</p>
           </div>
           <div class="tile">
-            <div class="icon alt" aria-hidden="true">📈</div>
+            <div class="icon" aria-hidden="true">📈</div>
             <h3>Data science</h3>
             <p>Pipeline thinking: reproducible analysis, model comparison, and clear visuals that survive skeptical scrutiny.</p>
           </div>
           <div class="tile">
-            <div class="icon good" aria-hidden="true">🚀</div>
+            <div class="icon" aria-hidden="true">🚀</div>
             <h3>Innovation</h3>
             <p>Translating research into ventures: technical roadmaps, grant strategy, and early product grounding.</p>
           </div>
@@ -399,15 +435,13 @@
         <div class="section-title">Research interests</div>
         <h2>What I’m curious about right now</h2>
         <p class="lead">
-          My north star is understanding how brains turn perception into action in real time, and using those principles
-          to build better interfaces, diagnostics, and decision systems.
-          
+         Build better interfaces, diagnostics, and decision systems.
         </p>
 
         <div class="list">
           <div class="item">
             <div class="top">
-              <div class="title">Egocentric coding & reference frames</div>
+              <div class="title">Egocentric coding and reference frames</div>
               <div class="meta2">Retrosplenial cortex • navigation • pursuit</div>
             </div>
             <div class="desc">
@@ -422,11 +456,11 @@
 
           <div class="item">
             <div class="top">
-              <div class="title">Bridging research → product</div>
+              <div class="title">Bridging research to product</div>
               <div class="meta2">deep-tech ventures • strategy • execution</div>
             </div>
             <div class="desc">
-              I’m drawn to translation work where the bottleneck isn’t “ideas”, it’s disciplined implementation:
+              I’m drawn to translation work where the bottleneck is disciplined implementation:
               strong foundations, tight messaging, and a roadmap that de-risks the core science.
             </div>
             <div class="tagrow">
@@ -443,9 +477,9 @@
     <section id="projects">
       <div class="container">
         <div class="section-title">Selected projects</div>
-        <h2>Code & tools</h2>
+        <h2>Code and tools</h2>
         <p class="lead">
-          You can find my public work on GitHub. Below are some repositories visible on my profile.
+          You can find my public work on GitHub. Below are some repositories and projects visible on my profile.
         </p>
 
         <div class="list">
