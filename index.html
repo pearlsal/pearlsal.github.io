@@ -1,0 +1,575 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Pearl Saldanha — Neuroscience • Data Science • Innovation</title>
+  <meta name="description" content="Pearl Saldanha — PhD neuroscientist (NTNU/Kavli). Spatial cognition, egocentric coding in retrosplenial cortex, and translation of research into deep-tech ventures." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Pearl Saldanha" />
+  <meta property="og:description" content="Neuroscience • Data Science • Innovation" />
+  <meta property="og:type" content="website" />
+
+  <!-- Simple favicon (emoji) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧠</text></svg>">
+
+  <style>
+    :root{
+      --bg:#070b14;
+      --card:#0b1220;
+      --card2:#0d1730;
+      --text:#eaf0ff;
+      --muted:#a9b7d6;
+      --line:rgba(255,255,255,.10);
+      --brand1:#7c3aed; /* violet */
+      --brand2:#06b6d4; /* cyan */
+      --good:#22c55e;   /* green */
+      --shadow: 0 20px 60px rgba(0,0,0,.45);
+      --radius: 18px;
+      --radius2: 26px;
+      --max: 1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 800px at 15% -10%, rgba(124,58,237,.35), transparent 60%),
+        radial-gradient(900px 600px at 85% 10%, rgba(6,182,212,.30), transparent 55%),
+        radial-gradient(700px 500px at 50% 70%, rgba(34,197,94,.12), transparent 55%),
+        var(--bg);
+      line-height:1.55;
+    }
+    a{color:inherit; text-decoration:none}
+    .container{max-width:var(--max); margin:0 auto; padding:0 20px}
+
+    /* Nav */
+    .nav{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(7,11,20,.65);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-inner{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+      gap:14px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight:800; letter-spacing:.2px;
+      white-space:nowrap;
+    }
+    .logo{
+      width:34px; height:34px; border-radius:10px;
+      background: linear-gradient(135deg, var(--brand1), var(--brand2));
+      box-shadow: 0 12px 30px rgba(124,58,237,.25);
+      position:relative;
+      overflow:hidden;
+      flex:0 0 auto;
+    }
+    .logo:after{
+      content:"";
+      position:absolute; inset:-40%;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.35), transparent 50%);
+      transform: rotate(15deg);
+    }
+    .nav-links{
+      display:flex; gap:18px; align-items:center;
+      color:var(--muted);
+      font-weight:650;
+      font-size:14px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .nav-links a:hover{color:var(--text)}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:10px;
+      border:1px solid var(--line);
+      padding:10px 14px;
+      border-radius:12px;
+      background: rgba(255,255,255,.04);
+      color:var(--text);
+      font-weight:750;
+      font-size:14px;
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+      cursor:pointer;
+      user-select:none;
+    }
+    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.18)}
+    .btn.primary{
+      border:0;
+      background: linear-gradient(135deg, rgba(124,58,237,.95), rgba(6,182,212,.95));
+      box-shadow: 0 16px 40px rgba(6,182,212,.18);
+    }
+    .btn.primary:hover{background: linear-gradient(135deg, rgba(124,58,237,1), rgba(6,182,212,1))}
+
+    /* Hero */
+    .hero{padding:56px 0 12px}
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap:20px;
+      align-items:stretch;
+    }
+    .pill{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:8px 12px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background: rgba(255,255,255,.03);
+      color:var(--muted);
+      font-weight:650;
+      font-size:13px;
+      width:fit-content;
+    }
+    .dot{
+      width:10px; height:10px; border-radius:999px;
+      background: linear-gradient(135deg, var(--brand1), var(--brand2));
+      box-shadow: 0 0 0 4px rgba(124,58,237,.12);
+    }
+    h1{
+      margin:14px 0 10px;
+      font-size: clamp(34px, 4vw, 52px);
+      line-height:1.05;
+      letter-spacing:-.8px;
+    }
+    .subhead{
+      font-size: 18px;
+      color: var(--muted);
+      margin: 0 0 18px;
+      max-width: 62ch;
+    }
+    .hero-actions{display:flex; gap:12px; flex-wrap:wrap; margin-top:16px}
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      border:1px solid var(--line);
+      border-radius: var(--radius2);
+      box-shadow: var(--shadow);
+    }
+    .hero-card{
+      padding:18px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      min-height: 100%;
+    }
+    .meta{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      border-radius: 16px;
+      padding: 14px;
+      display:grid;
+      gap:8px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .meta strong{color: var(--text)}
+    .mini{
+      display:flex; align-items:center; justify-content:space-between;
+      margin-top: 12px;
+      padding-top: 14px;
+      border-top:1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    /* Sections */
+    section{padding:44px 0}
+    .section-title{
+      font-size: 14px;
+      font-weight: 850;
+      letter-spacing: .12em;
+      color: rgba(232,240,255,.72);
+      text-transform: uppercase;
+      margin:0 0 10px;
+    }
+    h2{
+      margin: 0 0 10px;
+      font-size: clamp(26px, 3vw, 34px);
+      letter-spacing: -.5px;
+      line-height: 1.15;
+    }
+    .lead{
+      margin:0;
+      color: var(--muted);
+      font-size: 16px;
+      max-width: 80ch;
+    }
+    .grid-3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+      margin-top: 18px;
+    }
+    .tile{
+      padding:18px;
+      border-radius: var(--radius);
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      min-height: 160px;
+    }
+    .tile h3{
+      margin: 4px 0 8px;
+      font-size: 18px;
+      letter-spacing: -.2px;
+    }
+    .tile p{margin:0; color: var(--muted); font-size: 14px}
+    .icon{
+      width:38px; height:38px; border-radius:14px;
+      display:grid; place-items:center;
+      background: rgba(124,58,237,.14);
+      border: 1px solid rgba(124,58,237,.25);
+      margin-bottom: 10px;
+    }
+    .icon.alt{
+      background: rgba(6,182,212,.12);
+      border: 1px solid rgba(6,182,212,.22);
+    }
+    .icon.good{
+      background: rgba(34,197,94,.12);
+      border: 1px solid rgba(34,197,94,.22);
+    }
+
+    /* Lists */
+    .list{
+      margin-top: 14px;
+      display:grid;
+      gap:10px;
+    }
+    .item{
+      padding:14px 16px;
+      border-radius: 16px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+    }
+    .item .top{
+      display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
+      align-items:baseline;
+    }
+    .item .title{font-weight:850; letter-spacing:-.2px}
+    .item .meta2{color:var(--muted); font-size:13px}
+    .item .desc{margin-top:6px; color:var(--muted); font-size:14px}
+    .tagrow{margin-top:10px; display:flex; gap:8px; flex-wrap:wrap}
+    .tag{
+      font-size:12px;
+      color: rgba(232,240,255,.85);
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      border-radius:999px;
+      padding:6px 10px;
+    }
+
+    /* Footer */
+    footer{
+      padding: 26px 0 44px;
+      color: rgba(232,240,255,.60);
+      border-top: 1px solid var(--line);
+      margin-top: 30px;
+      font-size: 13px;
+    }
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .hero-grid{grid-template-columns: 1fr}
+      .grid-3{grid-template-columns: 1fr}
+      .nav-links{gap:12px}
+    }
+  </style>
+
+  <!-- JSON-LD (basic) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Person",
+    "name":"Pearl Saldanha",
+    "jobTitle":"PhD Neuroscientist",
+    "address":{"@type":"PostalAddress","addressLocality":"Trondheim","addressCountry":"NO"},
+    "affiliation":[{"@type":"Organization","name":"NTNU / Kavli Institute for Systems Neuroscience"}],
+    "sameAs":[
+      "https://github.com/pearlsal",
+      "https://www.linkedin.com/in/pearl-saldanha",
+      "https://scholar.google.com/citations?hl=en&user=w5UvWckAAAAJ"
+    ]
+  }
+  </script>
+</head>
+
+<body>
+  <header class="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a class="brand" href="#top" aria-label="Home">
+          <span class="logo" aria-hidden="true"></span>
+          <span>Pearl Saldanha</span>
+        </a>
+        <nav class="nav-links" aria-label="Primary">
+          <a href="#about">About</a>
+          <a href="#research">Research</a>
+          <a href="#projects">Projects</a>
+          <a href="#publications">Publications</a>
+          <a href="#contact" class="btn">Contact</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <div class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div>
+            <div class="pill"><span class="dot"></span> Neuroscience • Data Science • Innovation</div>
+            <h1>Building models of the brain — and translating them into tools that matter.</h1>
+            <p class="subhead">
+              I’m a PhD neuroscientist at NTNU/Kavli (Trondheim) working on how the brain supports goal-directed behavior and
+              spatial cognition. I’m especially interested in egocentric representations, neural computation in cortex,
+              and the path from research → product.
+            </p>
+
+            <div class="hero-actions">
+              <a class="btn primary" href="mailto:pearl.saldanha@ntnu.no?subject=Hello%20Pearl">Email me</a>
+              <a class="btn" href="https://www.linkedin.com/in/pearl-saldanha" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+              <a class="btn" href="https://github.com/pearlsal" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+              <a class="btn" href="https://scholar.google.com/citations?hl=en&user=w5UvWckAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar ↗</a>
+            </div>
+          </div>
+
+          <aside class="card hero-card" aria-label="Quick facts">
+            <div class="meta">
+              <div><strong>Location:</strong> Trondheim, Norway</div>
+              <div><strong>Current:</strong> PhD Neuroscience (NTNU/Kavli)</div>
+              <div><strong>Also:</strong> CSO & EIR @ Intellectual Labs</div>
+              <div><strong>Focus:</strong> spatial cognition, egocentric coding, translational science</div>
+            </div>
+
+            <div class="mini">
+              <span>Open to: research × venture collaborations</span>
+              <span style="display:inline-flex; gap:8px; align-items:center;">
+                <span style="width:8px;height:8px;border-radius:999px;background:var(--good); box-shadow:0 0 0 4px rgba(34,197,94,.12)"></span>
+                Available for talks
+              </span>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="container">
+        <div class="section-title">About</div>
+        <h2>Science, execution, and a bias for shipping.</h2>
+        <p class="lead">
+          I enjoy problems that sit between disciplines: where you need strong theory, robust analysis, and enough pragmatism
+          to build something real. I’ve worked across systems neuroscience, data science workflows, and innovation programs —
+          including leading commercialization projects and helping shape deep-tech venture roadmaps.
+        </p>
+
+        <div class="grid-3">
+          <div class="tile">
+            <div class="icon" aria-hidden="true">🧠</div>
+            <h3>Systems neuroscience</h3>
+            <p>How cortical circuits support spatial cognition and goal-directed behavior, especially under dynamic demands.</p>
+          </div>
+          <div class="tile">
+            <div class="icon alt" aria-hidden="true">📈</div>
+            <h3>Data science</h3>
+            <p>Pipeline thinking: reproducible analysis, model comparison, and clear visuals that survive skeptical scrutiny.</p>
+          </div>
+          <div class="tile">
+            <div class="icon good" aria-hidden="true">🚀</div>
+            <h3>Innovation</h3>
+            <p>Translating research into ventures: technical roadmaps, grant strategy, and early product grounding.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESEARCH -->
+    <section id="research">
+      <div class="container">
+        <div class="section-title">Research interests</div>
+        <h2>What I’m curious about right now</h2>
+        <p class="lead">
+          My north star is understanding how brains turn perception into action in real time, and using those principles
+          to build better interfaces, diagnostics, and decision systems.
+          
+        </p>
+
+        <div class="list">
+          <div class="item">
+            <div class="top">
+              <div class="title">Egocentric coding & reference frames</div>
+              <div class="meta2">Retrosplenial cortex • navigation • pursuit</div>
+            </div>
+            <div class="desc">
+              How cortical populations represent boundaries, targets, and objects, and how those codes re-allocate under behavioral pressure.
+            </div>
+            <div class="tagrow">
+              <span class="tag">egocentric vector codes</span>
+              <span class="tag">dynamic behavior</span>
+              <span class="tag">population models</span>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="top">
+              <div class="title">Bridging research → product</div>
+              <div class="meta2">deep-tech ventures • strategy • execution</div>
+            </div>
+            <div class="desc">
+              I’m drawn to translation work where the bottleneck isn’t “ideas”, it’s disciplined implementation:
+              strong foundations, tight messaging, and a roadmap that de-risks the core science.
+            </div>
+            <div class="tagrow">
+              <span class="tag">technical roadmaps</span>
+              <span class="tag">grant strategy</span>
+              <span class="tag">venture building</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="container">
+        <div class="section-title">Selected projects</div>
+        <h2>Code & tools</h2>
+        <p class="lead">
+          You can find my public work on GitHub. Below are some repositories visible on my profile.
+        </p>
+
+        <div class="list">
+
+          <div class="item">
+            <div class="top">
+              <div class="title">Early cancer detection spin-out</div>
+              <div class="meta2">Venture building</div>
+            </div>
+            <div class="desc">
+              I am pivoting part of my work toward early cancer detection and I am involved in building a spin-out together with Intellectual Labs.
+              I keep public details minimal while the technical direction and IP strategy are still being defined.
+            </div>
+            <div class="tagrow">
+              <span class="tag">early detection</span>
+              <span class="tag">translation</span>
+              <span class="tag">go to market learning</span>
+              <a class="btn" href="https://www.linkedin.com/in/pearl-saldanha" target="_blank" rel="noopener noreferrer">Updates on LinkedIn ↗</a>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="top">
+              <div class="title">HERBS</div>
+              <div class="meta2">Neuroscience tooling</div>
+            </div>
+            <div class="desc">Software for histological and brain data processing (forked project on my GitHub).</div>
+            <div class="tagrow">
+              <a class="btn" href="https://github.com/pearlsal/HERBS" target="_blank" rel="noopener noreferrer">View repo ↗</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- PUBLICATIONS -->
+    <section id="publications">
+      <div class="container">
+        <div class="section-title">Publications</div>
+        <h2>Selected</h2>
+        <p class="lead">
+          A few representative papers (see Google Scholar for the full list).
+        </p>
+
+        <div class="list">
+          <div class="item">
+            <div class="top">
+              <div class="title">Histological E-data registration in rodent brain spaces</div>
+              <div class="meta2">eLife (2023)</div>
+            </div>
+            <div class="desc">Jingyi Guo Fuglstad*, Pearl Saldanha*, Jacopo Paglia, Jonathan R. Whitlock. (*Equal contribution)</div>
+          </div>
+
+          <div class="item">
+            <div class="top">
+              <div class="title">Clover-like object vector representations support human spatial cognition</div>
+              <div class="meta2">bioRxiv (2025)</div>
+            </div>
+            <div class="desc">Marcia Bécu, Iva M. Krasovec, Pearl Saldanha, Jonathan R. Whitlock, Christian F. Doeller.</div>
+          </div>
+
+          <div class="item">
+            <div class="top">
+              <div class="title">Active pursuit gates egocentric coding in the retrosplenial cortex</div>
+              <div class="meta2">bioRxiv (2026)</div>
+            </div>
+            <div class="desc">Pearl Saldanha, Martin Bjerke, Jonathan R. Whitlock, Benjamin A. Dunn.</div>
+          </div>
+        </div>
+
+        <div style="margin-top:14px;">
+          <a class="btn primary" href="https://scholar.google.com/citations?hl=en&user=w5UvWckAAAAJ" target="_blank" rel="noopener noreferrer">See all publications on Google Scholar ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="container">
+        <div class="section-title">Contact</div>
+        <h2>Let’s talk</h2>
+        <p class="lead">
+          Best way to reach me is email. If you want to collaborate, include (1) context, (2) what you’re building, and (3) a concrete next step.
+        </p>
+
+        <div class="list">
+          <div class="item">
+            <div class="top">
+              <div class="title">Email</div>
+              <div class="meta2">I usually reply fast if the ask is clear.</div>
+            </div>
+            <div class="tagrow">
+              <a class="btn primary" href="mailto:pearl.saldanha@ntnu.no?subject=Hello%20Pearl">pearl.saldanha@ntnu.no</a>
+              <a class="btn" href="mailto:pearl.saldanha@ntnu.no?subject=Talk%20%2F%20Speaking%20invite&body=Hi%20Pearl%2C%0A%0AWe%E2%80%99d%20like%20to%20invite%20you%20to%20...%0A%0ADate%3A%0AFormat%3A%0AAudience%3A%0A%0AThanks%2C">Invite me to speak</a>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="top">
+              <div class="title">Links</div>
+              <div class="meta2">Profiles</div>
+            </div>
+            <div class="tagrow">
+              <a class="btn" href="https://www.ntnu.edu/employees/pearl.saldanha" target="_blank" rel="noopener noreferrer">NTNU profile ↗</a>
+              <a class="btn" href="https://www.linkedin.com/in/pearl-saldanha" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+              <a class="btn" href="https://github.com/pearlsal" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+              <a class="btn" href="https://scholar.google.com/citations?hl=en&user=w5UvWckAAAAJ" target="_blank" rel="noopener noreferrer">Scholar ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container" style="display:flex; gap:10px; justify-content:space-between; flex-wrap:wrap;">
+        <div>© <span id="year"></span> Pearl Saldanha</div>
+        <div style="opacity:.8">Built for clarity • Minimal • Easy to publish</div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
