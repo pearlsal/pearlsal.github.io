@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Pearl Saldanha — Neuroscience • Data Science • Innovation</title>
-  <meta name="description" content="Pearl Saldanha — PhD neuroscientist (NTNU/Kavli). Spatial cognition, egocentric coding in retrosplenial cortex, and translation of research into deep-tech ventures." />
+  <title>Pearl Saldanha — Neuroscience • Deep Tech • Venture Leadership</title>
+  <meta name="description" content="Pearl Saldanha — PhD neuroscientist and deep-tech founder. CSO at Epidetect Labs, building ONCOGENAI for early cancer detection. Spatial cognition researcher at NTNU/Kavli." />
 
   <!-- Open Graph -->
   <meta property="og:title" content="Pearl Saldanha" />
-  <meta property="og:description" content="Neuroscience • Data Science • Innovation" />
+  <meta property="og:description" content="Neuroscience • Deep Tech • Venture Leadership" />
   <meta property="og:type" content="website" />
 
   <!-- Simple favicon (emoji) -->
@@ -242,9 +242,9 @@
       font-size: 16px;
       max-width: 80ch;
     }
-    .grid-3{
+    .grid-4{
       display:grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap:14px;
       margin-top: 18px;
     }
@@ -273,6 +273,10 @@
       border-radius: 16px;
       border:1px solid var(--line);
       background: rgba(255,255,255,.03);
+    }
+    .item.featured{
+      border-color: rgba(124,58,237,.35);
+      background: linear-gradient(135deg, rgba(124,58,237,.08), rgba(6,182,212,.05));
     }
     .item .top{
       display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
@@ -303,10 +307,13 @@
     /* Responsive */
     @media (max-width: 980px){
       .hero-grid{grid-template-columns: 1fr}
-      .grid-3{grid-template-columns: 1fr}
+      .grid-4{grid-template-columns: 1fr 1fr}
       .nav-links{gap:12px}
       .photo-wrap{grid-template-columns: 100px 1fr}
       .photo{width:100px; height:100px}
+    }
+    @media (max-width: 600px){
+      .grid-4{grid-template-columns: 1fr}
     }
   </style>
 
@@ -316,9 +323,13 @@
     "@context":"https://schema.org",
     "@type":"Person",
     "name":"Pearl Saldanha",
-    "jobTitle":"PhD Neuroscientist",
+    "jobTitle":"Chief Scientific Officer, Epidetect Labs",
     "address":{"@type":"PostalAddress","addressLocality":"Trondheim","addressCountry":"NO"},
-    "affiliation":[{"@type":"Organization","name":"NTNU / Kavli Institute for Systems Neuroscience"}],
+    "affiliation":[
+      {"@type":"Organization","name":"Epidetect Labs"},
+      {"@type":"Organization","name":"Intellectual Labs"},
+      {"@type":"Organization","name":"NTNU / Kavli Institute for Systems Neuroscience"}
+    ],
     "sameAs":[
       "https://github.com/pearlsal",
       "https://www.linkedin.com/in/pearl-saldanha",
@@ -339,7 +350,7 @@
         <nav class="nav-links" aria-label="Primary">
           <a href="#about">About</a>
           <a href="#research">Research</a>
-          <a href="#projects">Projects</a>
+          <a href="#ventures">Ventures</a>
           <a href="#publications">Publications</a>
           <a href="#contact" class="btn">Contact</a>
         </nav>
@@ -353,10 +364,10 @@
       <div class="container">
         <div class="hero-grid">
           <div>
-            <div class="pill"><span class="dot"></span> Neuroscience • Data Science • Innovation</div>
-            <h1>Bridging science and innovation to create products that matter.</h1>
+            <div class="pill"><span class="dot"></span> Neuroscience • Deep Tech • Venture Leadership</div>
+            <h1>Neuroscientist and deep-tech founder building AI for early cancer detection.</h1>
             <p class="subhead">
-              I’m a neuroscientist by training, but my real passion is translation. I work at the exact intersection of R&D and product development, taking complex scientific discoveries and turning them into tangible products that actually reach and impact people.
+              I lead the scientific strategy at Epidetect Labs, where we're building ONCOGENAI — a generative AI platform for early cancer detection through epigenetic methylation patterns in liquid biopsies. My work sits at the intersection of neuroscience, data science, and translational venture building.
             </p>
 
             <div class="hero-actions">
@@ -370,7 +381,6 @@
           <aside class="card hero-card" aria-label="Quick facts">
             <div class="photo-wrap">
               <div class="photo" aria-label="Profile photo">
-                <!-- Put your image at asset/pearl.jpg (or change this path) -->
                 <img src="asset/pearl.jpg" alt="Pearl Saldanha" onerror="this.style.display='none'; this.parentElement.querySelector('.photo-fallback').style.display='grid';" />
                 <div class="photo-fallback" style="display:none;">PS</div>
               </div>
@@ -381,16 +391,15 @@
 
             <div class="meta">
               <div><strong>Location:</strong> Trondheim, Norway</div>
-              <div><strong>Current:</strong> PhD Neuroscience (Kavli Institute for Systems Neuroscience, NTNU)</div>
-              <div><strong>Also:</strong> CSO and EIR at Intellectual Labs</div>
-              <div><strong>Focus:</strong> spatial cognition, translational science, cancer biology</div>
+              <div><strong>Venture:</strong> CSO at <strong>Epidetect Labs</strong>, spun out of Intellectual Labs</div>
+              <div><strong>Research:</strong> PhD Neuroscience, Kavli Institute for Systems Neuroscience, NTNU</div>
+              <div><strong>Focus:</strong> AI × cancer biology, spatial cognition, translational science</div>
             </div>
 
             <div class="mini">
-              <span>Open to: research and venture collaborations</span>
+              <span>Open to: investor conversations, research & venture collaborations</span>
               <span style="display:inline-flex; gap:8px; align-items:center;">
                 <span style="width:8px;height:8px;border-radius:999px;background:var(--good); box-shadow:0 0 0 4px rgba(34,197,94,.12)"></span>
-                
               </span>
             </div>
           </aside>
@@ -402,14 +411,14 @@
     <section id="about">
       <div class="container">
         <div class="section-title">About</div>
-        <h2>Science and execution.</h2>
+        <h2>Science, execution, and leadership.</h2>
         <p class="lead">
-          I enjoy problems that sit between disciplines: where you need strong theory, robust analysis, and enough pragmatism
-          to build something real. I’ve worked across systems neuroscience, data science workflows, and innovation programs,
-          including leading commercialization projects and helping shape deep-tech venture roadmaps.
+          I thrive on problems that sit between disciplines — where you need strong theory, robust analysis, and enough pragmatism
+          to build something real. I've built and led work across systems neuroscience, data science pipelines, and deep-tech
+          venture creation, from shaping scientific strategy and grant roadmaps to leading investor-facing narratives and team building.
         </p>
 
-        <div class="grid-3">
+        <div class="grid-4">
           <div class="tile">
             <div class="icon" aria-hidden="true">🧠</div>
             <h3>Systems neuroscience</h3>
@@ -422,8 +431,13 @@
           </div>
           <div class="tile">
             <div class="icon" aria-hidden="true">🚀</div>
-            <h3>Innovation</h3>
-            <p>Translating research into ventures: technical roadmaps, grant strategy, and early product grounding.</p>
+            <h3>Innovation & ventures</h3>
+            <p>Translating research into ventures: technical roadmaps, grant strategy, IP positioning, and go-to-market grounding.</p>
+          </div>
+          <div class="tile">
+            <div class="icon" aria-hidden="true">🎯</div>
+            <h3>Leadership</h3>
+            <p>Building and leading cross-functional teams from concept through investor conversations, grant wins, and product definition.</p>
           </div>
         </div>
       </div>
@@ -432,10 +446,10 @@
     <!-- RESEARCH -->
     <section id="research">
       <div class="container">
-        <div class="section-title">Research interests</div>
-        <h2>What I’m curious about right now</h2>
+        <div class="section-title">Research</div>
+        <h2>What I'm working on</h2>
         <p class="lead">
-         Build better interfaces, diagnostics, and decision systems.
+          Building better interfaces, diagnostics, and decision systems — from the cortex to the clinic.
         </p>
 
         <div class="list">
@@ -456,46 +470,52 @@
 
           <div class="item">
             <div class="top">
-              <div class="title">Bridging research to product</div>
-              <div class="meta2">deep-tech ventures • strategy • execution</div>
+              <div class="title">AI-driven cancer diagnostics</div>
+              <div class="meta2">Epidetect Labs • ONCOGENAI</div>
             </div>
             <div class="desc">
-              I’m drawn to translation work where the bottleneck is disciplined implementation:
-              strong foundations, tight messaging, and a roadmap that de-risks the core science.
+              Leading the scientific strategy for a generative AI platform designed for early cancer detection through epigenetic methylation patterns in liquid biopsies.
             </div>
             <div class="tagrow">
-              <span class="tag">technical roadmaps</span>
-              <span class="tag">grant strategy</span>
-              <span class="tag">venture building</span>
+              <span class="tag">epigenetics</span>
+              <span class="tag">liquid biopsy</span>
+              <span class="tag">generative AI</span>
+              <span class="tag">early detection</span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- PROJECTS -->
-    <section id="projects">
+    <!-- VENTURES (renamed from Projects) -->
+    <section id="ventures">
       <div class="container">
-        <div class="section-title">Selected projects</div>
+        <div class="section-title">Ventures & projects</div>
+        <h2>What I'm building</h2>
         <p class="lead">
         </p>
 
         <div class="list">
 
-          <div class="item">
+          <div class="item featured">
             <div class="top">
-              <div class="title">Early cancer detection spin-out</div>
-              <div class="meta2">Venture building</div>
+              <div class="title">Epidetect Labs — ONCOGENAI</div>
+              <div class="meta2">CSO & EIR • Deep-tech venture</div>
             </div>
             <div class="desc">
-              I am pivoting part of my work toward early cancer detection and I am involved in building a spin-out together with Intellectual Labs.
-              I keep public details minimal while the technical direction and IP strategy are still being defined.
+              Leading the scientific strategy for Epidetect Labs, a deep-tech venture spun out of
+              <a href="#" style="color:var(--text); border-bottom:1px solid var(--muted);">Intellectual Labs</a>,
+              an AI-first venture studio. We are building ONCOGENAI, a generative AI platform designed for early cancer detection
+              through epigenetic methylation patterns in liquid biopsies. My role spans scientific direction, grant strategy,
+              investor positioning, and team building.
             </div>
             <div class="tagrow">
-              <span class="tag">early detection</span>
-              <span class="tag">translation</span>
-              <span class="tag">go to market learning</span>
-              <a class="btn" href="https://www.linkedin.com/in/pearl-saldanha" target="_blank" rel="noopener noreferrer">Updates on LinkedIn ↗</a>
+              <span class="tag">early cancer detection</span>
+              <span class="tag">generative AI</span>
+              <span class="tag">epigenetic methylation</span>
+              <span class="tag">liquid biopsy</span>
+              <span class="tag">venture leadership</span>
+              <a class="btn" href="https://www.linkedin.com/in/pearl-saldanha" target="_blank" rel="noopener noreferrer">Follow on LinkedIn ↗</a>
             </div>
           </div>
 
@@ -559,9 +579,9 @@
     <section id="contact">
       <div class="container">
         <div class="section-title">Contact</div>
-        <h2>Let’s talk</h2>
+        <h2>Let's talk</h2>
         <p class="lead">
-          Best way to reach me is email. If you want to collaborate, include (1) context, (2) what you’re building, and (3) a concrete next step.
+          Best way to reach me is email. If you want to collaborate, include (1) context, (2) what you're building, and (3) a concrete next step.
         </p>
 
         <div class="list">
@@ -595,7 +615,6 @@
     <footer>
       <div class="container" style="display:flex; gap:10px; justify-content:space-between; flex-wrap:wrap;">
         <div>© <span id="year"></span> Pearl Saldanha</div>
-        
       </div>
     </footer>
   </main>
